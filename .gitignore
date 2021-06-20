@@ -31,5 +31,7 @@
 *.out
 *.app
 
+# VS Code stuff
 *.pdb
 *.ilk
+*.vscode
