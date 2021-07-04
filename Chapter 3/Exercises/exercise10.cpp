@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 10 Chapter 3 on Page 86
-   
+
    Takes an operation followed by two operands and outputs the result
 */
 
@@ -32,7 +32,7 @@ int main()
       cin >> operand1 >> operand2;
       result = operand1 / operand2;
    }
-   else { 
+   else {
       simple_error("unknown operation");
    }
 

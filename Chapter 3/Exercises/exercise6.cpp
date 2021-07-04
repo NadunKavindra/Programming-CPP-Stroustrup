@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 6 Chapter 3 on Page 86
-   
+
    Prompts the user to enter three integer values
    Outputs the values in numerical sequence seperated by commas
    (Not the most elegant solution without the use of a vector or array)
@@ -23,7 +23,7 @@ int main()
 
    if (val1 >= val2 && val1 >= val3) {
       largest = val1;
-      
+
       if (val2 >= val3) {
          middle = val2;
          smallest = val3;
@@ -35,7 +35,7 @@ int main()
    }
    else if (val2 >= val1 && val2 >= val3) {
       largest = val2;
-      
+
       if (val1 >= val3) {
          middle = val1;
          smallest = val3;

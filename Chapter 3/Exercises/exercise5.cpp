@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 5 Chapter 3 on Page 86
-   
+
    Determines the smallest, difference, product and ratio
    of two floating-point values provided as input from the user
 */
@@ -24,7 +24,7 @@ int main()
       cout << val1 << " is the smaller value\n";
    else
       cout << val1 << " == " << val2;
-   
+
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
    cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';

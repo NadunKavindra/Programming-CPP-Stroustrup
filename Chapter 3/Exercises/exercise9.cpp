@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 9 Chapter 3 on Page 86
-   
+
    Converts spelled out numbers such as "zero" and "two" into digits
    Only works for digits 0-4 (for now)
 */
@@ -35,7 +35,7 @@ int main()
       else {
          cout << "\"" << user_input << "\"" << " is not a number I know\n";
       }
-      
+
       cout << "Please enter another integer (using letters): ";
    }
 

@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 8 Chapter 3 on Page 86
-   
+
    Determines wheter an integer value is even or odd
 */
 

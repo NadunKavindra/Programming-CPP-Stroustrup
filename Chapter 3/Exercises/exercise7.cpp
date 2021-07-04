@@ -1,6 +1,6 @@
 /*
    Solution for Exercise 7 Chapter 3 on Page 86
-   
+
    Prompts the user to enter three string values
    Outputs the values in alphabetical sequence seperated by commas
 */
@@ -22,7 +22,7 @@ int main()
 
    if (val1 >= val2 && val1 >= val3) {
       largest = val1;
-      
+
       if (val2 >= val3) {
          middle = val2;
          smallest = val3;
@@ -34,7 +34,7 @@ int main()
    }
    else if (val2 >= val1 && val2 >= val3) {
       largest = val2;
-      
+
       if (val1 >= val3) {
          middle = val1;
          smallest = val3;
