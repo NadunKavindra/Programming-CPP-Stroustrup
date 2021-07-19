@@ -35,3 +35,6 @@
 *.pdb
 *.ilk
 *.vscode
+
+# Exercises to be ignored
+drill.cpp
