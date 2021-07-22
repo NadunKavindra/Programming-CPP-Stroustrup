@@ -8,11 +8,11 @@
 
 int main()
 {
-   string operation;
    double operand1 = 0;
    double operand2 = 0;
    double result = 0;
 
+   string operation;
    cout << "Enter an operation followed by two operands (seperated by spaces): ";
    cin >> operation;
 
@@ -35,6 +35,5 @@ int main()
    else {
       simple_error("unknown operation");
    }
-
    cout << "Result of operation == " << result << '\n';
 }

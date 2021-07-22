@@ -8,8 +8,10 @@ int main()
 {
    int pennies = 0;
    int nickels = 0;
+   
    int dimes = 0;
    int quarters = 0;
+   
    int half_dollars = 0;
    int one_dollars = 0;
 
