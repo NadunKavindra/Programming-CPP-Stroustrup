@@ -8,7 +8,7 @@
 
 int main()
 {
-   int val = 0;
+   int val {};
 
    cout << "Please enter an integer value: ";
    cin >> val;

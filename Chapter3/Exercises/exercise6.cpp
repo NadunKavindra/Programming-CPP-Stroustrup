@@ -3,23 +3,23 @@
 
    Prompts the user to enter three integer values
    Outputs the values in numerical sequence seperated by commas
-   (Not the most elegant solution without the use of a vector or array)
+   (Not the most elegant solution without the use of a vector, not introduced in the book yet)
 */
 
 #include "../../std_lib_facilities.h"
 
 int main()
 {
-   int val1 = 0;
-   int val2 = 0;
-   int val3 = 0;
+   int val1 {};
+   int val2 {};
+   int val3 {};
 
    cout << "Enter three integers values seperated by a space: ";
    cin >> val1 >> val2 >> val3;
 
-   int smallest = 0;
-   int largest = 0;
-   int middle = 0;
+   int smallest {};
+   int largest {};
+   int middle {};
 
    if (val1 >= val2 && val1 >= val3) {
       largest = val1;

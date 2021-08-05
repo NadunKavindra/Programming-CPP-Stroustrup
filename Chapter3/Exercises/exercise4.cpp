@@ -9,8 +9,8 @@
 
 int main()
 {
-   int val1;
-   int val2;
+   int val1 {};
+   int val2 {};
 
    cout << "Please enter an integer value: ";
    cin >> val1;
@@ -18,13 +18,15 @@ int main()
    cout << "Please enter another integer value: ";
    cin >> val2;
 
-   if (val1 > val2)
+   if (val1 > val2) {
       cout << val2 << " is the smaller value\n";
-   else if (val2 > val1)
+   }
+   else if (val2 > val1) {
       cout << val1 << "is the smaller value\n";
-   else
+   }
+   else {
       cout << val1 << " == " << val2;
-
+   }
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
    cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';

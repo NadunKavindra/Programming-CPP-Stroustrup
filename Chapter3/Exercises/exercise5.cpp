@@ -9,8 +9,8 @@
 
 int main()
 {
-   double val1;
-   double val2;
+   double val1 {};
+   double val2 {};
 
    cout << "Please enter a floating-point value: ";
    cin >> val1;
