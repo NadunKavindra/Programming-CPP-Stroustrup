@@ -8,32 +8,34 @@
 
 int main()
 {
-   double operand1 = 0;
-   double operand2 = 0;
-   double result = 0;
+   double operand1 {};
+   double operand2 {};
 
    string operation;
    cout << "Enter an operation followed by two operands (seperated by spaces): ";
-   cin >> operation;
+   cin >> operation >> operand1 >> operand2;
 
-   if (operation == "+") {
-      cin >> operand1 >> operand2;
+   if (!cin) {
+      simple_error("invalid input value");
+   }
+
+   double result {};
+
+   if (operation == "+" || operation == "plus") {
       result = operand1 + operand2;
    }
-   else if (operation == "-") {
-      cin >> operand1 >> operand2;
+   else if (operation == "-" || operation == "minus") {
       result = operand1 - operand2;
    }
-   else if (operation == "*") {
-      cin >> operand1 >> operand2;
+   else if (operation == "*" || operation == "mul") {
       result = operand1 * operand2;
    }
-   else if (operation == "/") {
-      cin >> operand1 >> operand2;
+   else if (operation == "/" || operation == "div") {
       result = operand1 / operand2;
    }
    else {
       simple_error("unknown operation");
    }
+
    cout << "Result of operation == " << result << '\n';
 }

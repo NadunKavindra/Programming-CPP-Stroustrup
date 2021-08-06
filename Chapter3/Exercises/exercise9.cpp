@@ -10,9 +10,13 @@
 int main()
 {
    string user_input;
-   cout << "Please enter an integer (using letters): ";
+   cout << "Please enter an integer using letters (or enter 'quit' to quit): ";
 
    while (cin >> user_input) {
+      if (user_input == "quit" || user_input == "q") {
+         break;
+      }
+
       if (user_input == "zero") {
          cout << "\"" << user_input << "\" == 0\n";
       }
@@ -32,7 +36,6 @@ int main()
          cout << "\"" << user_input << "\"" << " is not a number I know\n";
       }
 
-      cout << "Please enter another integer (using letters): ";
+      cout << "Enter another integer using letters (or enter 'quit' to quit): ";
    }
-
 }
