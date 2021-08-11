@@ -14,24 +14,28 @@ int main()
    vector<int> scores;
 
    string name;
-   int score;
+   int score {};
 
    while (true) {
       cout << "Enter a name and a score (seperated by a space) or enter 'NoName  0' to stop: ";
       cin >> name >> score;
 
-      if (name == "NoName" && score == 0)
+      if (name == "NoName" && score == 0) {
          break;
+      }
 
-      for (string s : names)
-         if (name == s)
+      // check previous entries
+      for (string s : names) {
+         if (name == s) {
             simple_error("The name '" + name + "' has been entered before");
+         }
+      }
 
       names.push_back(name);
       scores.push_back(score);
    }
 
-   for (int i = 0; i < names.size(); ++i) {
+   for (int i { 0 }; i < names.size(); ++i) {
       cout << '(' << names[i] << ", " << scores[i] << ")\n";
    }
 }

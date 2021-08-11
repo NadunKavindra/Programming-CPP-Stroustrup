@@ -10,30 +10,34 @@
 
 int main()
 {
-   constexpr int not_prime = 0;
-   constexpr int is_prime = 1;
-   constexpr int first_prime = 2;
+   constexpr int not_prime { 0 };
+   constexpr int is_prime { 1 };
+   constexpr int first_prime { 2 };
 
-   int max = 0;
+   int max {};
 
-   cout << "Please enter maximum value for the range: ";
+   cout << "Please enter maximum value for the range (must be greater than 2): ";
 
    if (cin >> max && max > first_prime) {
       vector<int> numbers(max, 1);
 
-      for (int i = first_prime; i < sqrt(max); ++i) {
+      for (int i { first_prime }; i < sqrt(max); ++i) {
          if (numbers[i] == is_prime) {
-            for (int j = pow(i, 2); j < max; j += i)
+            for (int j = pow(i, 2); j < max; j += i) {
                numbers[j] = not_prime;
+            }
          }
       }
 
       cout << '\n' << "The prime numbers between 1 and " << max << ":\n";
 
-      for (int i = first_prime; i < numbers.size(); ++i)
-         if (numbers[i] == is_prime)
+      for (int i { first_prime }; i < numbers.size(); ++i) {
+         if (numbers[i] == is_prime) {
             cout << i << '\n';
+         }
+      }
    }
-   else
+   else {
       simple_error("value must be an integer greater than " + to_string(first_prime));
+   }
 }

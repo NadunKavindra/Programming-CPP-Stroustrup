@@ -9,14 +9,13 @@ int main()
    vector<double> distances;
 
    double min = 10000000000000000000;
-   double max = 0;
-   double sum = 0;
+   double max {};
+   double sum {};
 
    cout << "Please enter a sequence of floating-point values (distances) seperated by a space\n";
    cout << "Or, enter a non-positive value to stop\n";
 
-   double val;
-   while (cin >> val && val > 0) {
+   for (double val {}; cin >> val && val > 0; ) {
       distances.push_back(val);
       sum += val;
 

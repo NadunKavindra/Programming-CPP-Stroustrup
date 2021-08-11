@@ -8,12 +8,16 @@
 
 int main()
 {
-   double val1 = 0;
-   double val2 = 0;
-   char operation = 0;
+   double val1 {};
+   double val2 {};
+   char operation {};
 
    cout << "Enter two floating-point values followed by an operator (all seperated by a space): ";
    cin >> val1 >> val2 >> operation;
+
+   if (!cin) {
+      simple_error("invalid input value");
+   }
 
    switch (operation) {
    case '+':

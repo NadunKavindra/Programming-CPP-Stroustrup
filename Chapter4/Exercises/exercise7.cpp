@@ -7,19 +7,26 @@
 
 #include "../../std_lib_facilities.h"
 
-int string_to_int(string input)
+// Returns the value of a spelled out digit or a digit entered as a string
+int string_to_int(const string input)
 {
-   const vector<string> numbers = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-
-   if (input.size() == 1) {
-      const int digit = input[0] - 48; // ASCII digits start at 48
-
-      if (digit >= 0 && digit <= 9)
-         return digit;
-      else
-         simple_error("unknown input");
+   if (input.size() == 0) {
+      simple_error("cannot convert empty string");
    }
 
+   const vector<string> numbers { "zero", "one", "two", "three", "four", "five",
+                                  "six", "seven", "eight", "nine" };
+
+   // check if input is a digit such as '1', '2' etc.
+   if (input.size() == 1) {
+      const int digit { input[0] - 48 };   // ASCII digits start at 48
+
+      if (digit >= 0 && digit <= 9) {
+         return digit;
+      }
+   }
+
+   // check if input is a spelled out digit such as "one", "two" etc.
    for (int i = 0; i < numbers.size(); ++i) {
       if (input == numbers[i]) {
          return i;
@@ -31,15 +38,19 @@ int string_to_int(string input)
 
 int main()
 {
-   string input1 = "";
-   string input2 = "";
-   char operation = 0;
+   string input1;
+   string input2;
+   char operation {};
 
    cout << "Enter two digits followed by an operator (all seperated by a space): ";
    cin >> input1 >> input2 >> operation;
 
-   const int digit1 = string_to_int(input1);
-   const int digit2 = string_to_int(input2);
+   if (!cin) {
+      simple_error("invalid input value");
+   }
+
+   const int digit1 { string_to_int(input1) };
+   const int digit2 { string_to_int(input2) };
 
    switch (operation) {
    case '+':

@@ -12,11 +12,11 @@
 
 int main()
 {
-   constexpr double a = 1;
-   constexpr double r = 2;
-   constexpr double n = 64;
+   constexpr double a { 1 };
+   constexpr double r { 2 };
+   constexpr double n { 64 };
 
-   const double sum = a * (pow(r, n) - 1) / (r - 1);
+   const double sum { a * (pow(r,n)-1) / (r-1) };
 
    cout << sum << '\n';
 }
