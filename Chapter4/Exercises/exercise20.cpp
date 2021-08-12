@@ -54,7 +54,7 @@ int main()
       cout << "Enter a name and a score (seperated by a space) or enter 'NoName  0' to stop: ";
       cin >> name >> score;
 
-      if (cin.fail()) {
+      if (!cin) {
          simple_error("invalid input value");
       }
 
