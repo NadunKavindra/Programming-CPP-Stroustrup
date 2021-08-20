@@ -1,52 +1,53 @@
 /*
    Exercise 5 on Page 169-170
-   Converts celsius to kelvin
+   Converts celsius to kelvin and vice versa
 */
 
 #include "../../std_lib_facilities.h"
 
-
-
-double c_to_k(double c)
+double c_to_k(const double c)
 {
-   constexpr double absolute_zero_c = -273.15;
+   constexpr double absolute_zero_c { -273.15 };
 
    if (c < absolute_zero_c) {
-      error("invalid argument, temperature cannot be below " + to_string(absolute_zero_c) + "\370C");
+      error("invalid argument, temperature cannot be below " + to_string(absolute_zero_c) + " \370C");
    }
 
-   double k = c + 273.15;
-   return k;
+   return c + 273.15;
 }
 
-double k_to_c(double k)
+double k_to_c(const double k)
 {
-   constexpr double absolute_zero_k = 0;
+   constexpr double absolute_zero_k { 0 };
 
-   if (k < absolute_zero_k)
-      error("invalid argument, temperature cannot be below " + to_string(absolute_zero_k) + "\370K");
+   if (k < absolute_zero_k) {
+      error("invalid argument, temperature cannot be below " + to_string(absolute_zero_k) + " \370K");
+   }
 
-   double c = k - 273.15;
-   return c;
+   return k - 273.15;
 }
 
 int main()
 try {
-   double celsius = 0;
-
-   cout << "Enter value in celsius: ";
+   double celsius {};
+   cout << "Enter temperature in \370C: ";
    cin >> celsius;
 
-   double kelvin = c_to_k(celsius);
-   cout << kelvin << "\370K" << '\n';
+   if (!cin) {
+      error("input value must be a number");
+   }
 
-   cout << "Enter value in kelvin: ";
+   cout << celsius << " \370C == " << c_to_k(celsius) << " \370K" << "\n\n";
+
+   double kelvin {};
+   cout << "Enter temperature in \370K: ";
    cin >> kelvin;
 
-   celsius = k_to_c(kelvin);
-   cout << celsius << "\370C" << '\n';
+   if (!cin) {
+      error("input value must be a number");
+   }
 
-   return 0;
+   cout << kelvin << " \370K == " << k_to_c(kelvin) << " \370C" << '\n';
 }
 catch (exception& e) {
    cerr << "error: " << e.what() << '\n';

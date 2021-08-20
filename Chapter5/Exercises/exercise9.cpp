@@ -14,45 +14,51 @@
 
 bool check_overflow(vector<int> integers, int n, int sum)
 {
-   for (int i = 0; i < n; ++i)
+   for (int i { 0 }; i < n; ++i) {
       sum -= integers[i];
-   
-   if (sum == 0)  // no overflow
-      return false; 
-   
+   }
+
+   if (sum == 0) {   // no overflow
+      return false;
+   }
+
    return true;
 }
 
 int main()
 try {
-   int n = 0;
+   int n {};
    cout << "Please enter the number of values that you want to sum: ";
    cin >> n;
 
-   if (n < 1)
-      error("The numbers of values to be summed must be a positive integer.");
+   if (!cin || n < 1) {
+      error("invalid input value");
+   }
 
    vector<int> integers;
-   int input;
 
-   cout << "Please enter some integers (enter '|' to stop): ";
-   while (cin >> input)
+   cout << "Please enter some integers (enter any character to stop): ";
+   for (int input {}; cin >> input; ) {
       integers.push_back(input);
+   }
 
-   if (n > integers.size())
-      error("There are not enough numbers in the series");
+   if (n > integers.size()) {
+      error("There are not enough numbers to sum");
+   }
 
-   int sum = 0;
-   for (int i = 0; i < n; ++i)
+   int sum {};
+   for (int i { 0 }; i < n; ++i) {
       sum += integers[i];
+   }
 
-   if (check_overflow(integers, n, sum))
+   if (check_overflow(integers, n, sum)) {
       error("The result cannot be represented as an int");
-   
-   cout << "The sum of the first " << n << " numbers ( ";
-   for (int i = 0; i < n; ++i)
-      cout << integers[i] << ' ';
+   }
 
+   cout << '\n' << "The sum of the first " << n << " numbers ( ";
+   for (int i { 0 }; i < n; ++i) {
+      cout << integers[i] << ' ';
+   }
    cout << ") is " << sum << '\n';
 
    return 0;

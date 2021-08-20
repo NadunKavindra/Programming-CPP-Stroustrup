@@ -7,36 +7,45 @@
 
 #include "../../std_lib_facilities.h"
 
+// returns the sum of the first n elements of a vector
+int sum_vector(vector<int> v, int n)
+{
+   if (n > v.size()) {
+      error("There are not enough numbers to sum");
+   }
+
+   int sum { 0 };
+   for (int i { 0 }; i < n; ++i) {
+      sum += v[i];
+   }
+
+   return sum;
+}
+
 int main()
 try {
-   int n = 0;
+   int n {};
    cout << "Please enter the number of values that you want to sum: ";
    cin >> n;
 
-   if (n < 1)
+   if (!cin || n < 1) {
       error("The numbers of values to be summed must be a positive integer.");
+   }
 
    vector<int> integers;
-   int input;
 
-   cout << "Please enter some integers (enter '|' to stop): ";
-   while (cin >> input)
+   cout << "Please enter some integers (enter any character to stop): ";
+   for (int input {}; cin >> input; ) {
       integers.push_back(input);
+   }
 
-   if (n > integers.size())
-      error("There are not enough numbers in the series");
+   int sum { sum_vector(integers, n) };
 
-   int sum = 0;
-   for (int i = 0; i < n; ++i)
-      sum += integers[i];
-
-   cout << "The sum of the first " << n << " numbers ( ";
-   for (int i = 0; i < n; ++i)
+   cout << '\n' << "The sum of the first " << n << " numbers ( ";
+   for (int i { 0 }; i < n; ++i) {
       cout << integers[i] << ' ';
-
+   }
    cout << ") is " << sum << '\n';
-
-   return 0;
 }
 catch (exception& e) {
    cerr << "Error: " << e.what() << '\n';

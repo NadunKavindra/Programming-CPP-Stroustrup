@@ -10,12 +10,12 @@
 
 int main()
 {
-   int a = 0;
-   int b = 1;
+   int a { 0 };
+   int b { 1 };
 
    while (b > 0) {
       cout << a << '\n';
-      int c = b;
+      int c { b };
       b = a + b;
       a = c;
    }
