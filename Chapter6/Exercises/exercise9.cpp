@@ -12,7 +12,7 @@
 // Converts a vector of chars into it's integer representation
 // Only works with positive collection of digits
 // e.g. {'1', '2', '3', '4'} into 1234
-int chars_to_int(vector<char> digits)
+int chars_to_int(const vector<char>& digits)
 {
    if (digits[0] == '-') {
       error("cannot process negative numbers");
@@ -89,7 +89,8 @@ try {
 
       while (true) {
          char tmp = getchar();
-         if (!isdigit(tmp)) {
+         if (!isdigit(tmp) && tmp != '\n') {
+            cin.clear();
             cin.ignore(120, '\n');  // ignore remaining chars in the buffer
             digits.clear();
             break;
