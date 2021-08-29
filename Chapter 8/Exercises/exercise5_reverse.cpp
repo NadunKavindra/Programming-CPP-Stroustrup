@@ -1,21 +1,16 @@
-/**
+/*
    Exercise 5 on Page 300
-   @file exercise5_reverse.cpp
-   @author Mustafa Adaoglu
 */
 
 #include "../../std_lib_facilities.h"
 
-/**
-   Prints a vector of ints to cout
-   @param v the vector to be printed
-   @param label used as a "heading" in the output
-*/ 
+// Prints a vector of ints to cout
+// label used as a "heading" in the output
 void print(const vector<int>& v, string label)
 {
    cout << label << ": " << "{ ";
 
-   for (int i { 0 }; i < v.size(); ++i) {
+   for (int i {0}; i < v.size(); ++i) {
       cout << v[i];
 
       if (i != v.size() - 1) {
@@ -25,11 +20,7 @@ void print(const vector<int>& v, string label)
    cout << " }" << '\n';
 }
 
-/**
-   Reverses the order of elements of vector using pass by value
-   @param v the vector whose elements are to be reversed
-   @returns a new vector with reversed sequence of elements 
-*/
+// Reverses the order of elements of the vector using pass by value
 vector<int> reverse(const vector<int>& v)
 {
    vector<int> result;
@@ -46,22 +37,18 @@ vector<int> reverse(const vector<int>& v)
    return result;
 }
 
-/**
-   Reverses the order of elements of the provided vector using pass 
-   by reference
-   @param v vector whose elements are to be reversed
-**/
+// Reverses the order of elements of provided vector using pass by reference
 void reverse_by_ref(vector<int>& v)
 {
    // swap values from the outside in
-   for (int i { 0 }; i < v.size() / 2; ++i) {
+   for (int i {0}; i < v.size() / 2; ++i) {
       swap(v[i], v[v.size() - 1 - i]);
    }
 }
 
 int main()
 try {
-   vector<int> test_values { 1, 2, 3, 5, 7, 9 };
+   vector<int> test_values {1, 2, 3, 5, 7, 9};
    print(test_values, "TEST VALUES");
 
    print(reverse(test_values), "REVERSED using pass by value");

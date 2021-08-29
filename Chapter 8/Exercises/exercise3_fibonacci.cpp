@@ -1,21 +1,16 @@
-/**
+/*
    Exercise 3 on Page 300
-   @file exercise3_fibonacci.cpp
-   @author Mustafa Adaoglu
 */
 
 #include "../../std_lib_facilities.h"
 
-/**
-   Prints a vector of ints to cout
-   @param v the vector to be printed
-   @param label used as a "heading" in the output
-*/ 
+// Prints a vector of ints to cout
+// label used as a "heading" in the output
 void print(const vector<int>& v, string label)
 {
    cout << label << ": " << "{ ";
 
-   for (int i { 0 }; i < v.size(); ++i) {
+   for (int i {0}; i < v.size(); ++i) {
       cout << v[i];
 
       if (i != v.size() - 1) {
@@ -25,14 +20,11 @@ void print(const vector<int>& v, string label)
    cout << " }" << '\n';
 }
 
-/**
-   Fills an empty vector with a Fibonacci sequence
-   @param x first element of the Fibonacci sequence
-   @param y second element of the Fibonacci sequence
-   @param n number of elements to filled into the vector
-   @param v empty vector to be filled
- 
-*/
+// Fills an empty vector with a Fibonacci sequence
+// x is the first element of the Fibonacci sequence
+// y is the second element of the Fibonacci sequence
+// n is the number of elements to filled into the vector
+// v is the empty vector to be filled
 void fibonacci(int x, int y, int n, vector<int>& v)
 {
    if (n <= 0) {
@@ -46,7 +38,7 @@ void fibonacci(int x, int y, int n, vector<int>& v)
 
    do {
       v.push_back(x);
-      int c { y };
+      int c {y};
       y = x + y;
       x = c;
       --n;
