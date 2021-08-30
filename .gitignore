@@ -36,5 +36,8 @@
 *.ilk
 *.vscode
 
+# Other stuff
+.clang-format
+
 # Exercises to be ignored
 drill.cpp
