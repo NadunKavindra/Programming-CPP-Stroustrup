@@ -1,3 +1,8 @@
+/*
+   Exercise 8 on Page 340:
+   Implementation of a Patron class for a library.
+*/
+
 #include "../../std_lib_facilities.h"
 
 class Patron {
