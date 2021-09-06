@@ -5,10 +5,10 @@
 
 #include "../../std_lib_facilities.h"
 
-const enum class Genre {fiction, nonfiction, periodical, biography, children};
+enum class Genre {fiction, nonfiction, periodical, biography, children};
 
 class Book {
-public:  
+public:
    Book(string ISBN, string title, string author, unsigned int year, Genre genre);
    void checkIn() { on_loan = false; }
    void checkOut() { on_loan = true; }
