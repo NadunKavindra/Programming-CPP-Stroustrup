@@ -20,10 +20,10 @@ int main()
    string largest;
    string middle;
 
-   if (val1 >= val2 && val1 >= val3) {
+   if (val1 > val2 && val1 > val3) {
       largest = val1;
 
-      if (val2 >= val3) {
+      if (val2 > val3) {
          middle = val2;
          smallest = val3;
       }
@@ -32,10 +32,10 @@ int main()
          smallest = val2;
       }
    }
-   else if (val2 >= val1 && val2 >= val3) {
+   else if (val2 > val1 && val2 > val3) {
       largest = val2;
 
-      if (val1 >= val3) {
+      if (val1 > val3) {
          middle = val1;
          smallest = val3;
       }
@@ -47,7 +47,7 @@ int main()
    else {
       largest = val3;
 
-      if (val1 >= val2) {
+      if (val1 > val2) {
          middle = val1;
          smallest = val2;
       }
@@ -57,5 +57,6 @@ int main()
       }
    }
 
-   cout << "Strings in alphabetical sequence: " << smallest << ", " << middle << ", " << largest << '\n';
+   cout << "Strings in alphabetical sequence: " << smallest << ", " << middle
+        << ", " << largest << '\n';
 }

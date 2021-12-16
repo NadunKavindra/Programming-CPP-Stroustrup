@@ -8,13 +8,15 @@
 
 int main()
 {
-   int val {};
+   int val = 0;
 
    cout << "Please enter an integer value: ";
    cin >> val;
 
-   if (val % 2 == 0)
+   if (val % 2 == 0) {
       cout << "The value " << val << " is an even number\n";
-   else
+   }
+   else {
       cout << "The value " << val << " is an odd number\n";
+   }
 }

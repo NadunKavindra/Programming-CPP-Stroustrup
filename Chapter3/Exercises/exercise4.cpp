@@ -9,12 +9,11 @@
 
 int main()
 {
-   int val1 {};
-   int val2 {};
-
+   int val1 = 0;
    cout << "Please enter an integer value: ";
    cin >> val1;
 
+   int val2 = 0;
    cout << "Please enter another integer value: ";
    cin >> val2;
 
@@ -27,7 +26,9 @@ int main()
    else {
       cout << val1 << " == " << val2;
    }
+
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
-   cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';
+   cout << val1 << " / " << val2 << " == " << val1 / static_cast<double>(val2)
+        << '\n';
 }

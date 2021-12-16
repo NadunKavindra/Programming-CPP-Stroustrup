@@ -11,11 +11,11 @@ int main()
    vector<double> temperatures;
 
    cout << "Enter temperature values (enter any character to stop): ";
-   for (double temp {}; cin >> temp; ) {
+   for (double temp = 0; cin >> temp; ) {
       temperatures.push_back(temp);
    }
 
-   double sum {};
+   double sum = 0;
    for (double x : temperatures) {
       sum += x;
    }
@@ -23,14 +23,14 @@ int main()
 
    sort(temperatures);
 
-   double median {};
+   double median = 0;
+   size_t mid_index = temperatures.size() / 2;
 
    if (temperatures.size() % 2 == 0) {
-      median = (temperatures[(temperatures.size() / 2) - 1]
-               + temperatures[(temperatures.size() / 2)]) / 2;
+      median = (temperatures[mid_index] + temperatures[mid_index - 1]) / 2;
    }
    else {
-      median = temperatures[temperatures.size() / 2];
+      median = temperatures[mid_index];
    }
    cout << "Median temperature: " << median << '\n';
 }

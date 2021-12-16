@@ -8,10 +8,10 @@
 
 int main()
 {
-   double operand1 {};
-   double operand2 {};
-
+   double operand1 = 0;
+   double operand2 = 0;
    string operation;
+
    cout << "Enter an operation followed by two operands (seperated by spaces): ";
    cin >> operation >> operand1 >> operand2;
 
@@ -19,7 +19,7 @@ int main()
       simple_error("invalid input value");
    }
 
-   double result {};
+   double result = 0;
 
    if (operation == "+" || operation == "plus") {
       result = operand1 + operand2;

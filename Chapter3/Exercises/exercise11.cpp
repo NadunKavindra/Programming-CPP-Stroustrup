@@ -6,27 +6,27 @@
 
 int main()
 {
-   int pennies {};
+   int pennies = 0;
    cout << "How many pennies do you have ? ";
    cin >> pennies;
 
-   int nickels {};
+   int nickels = 0;
    cout << "How many nickels do you have ? ";
    cin >> nickels;
 
-   int dimes {};
+   int dimes = 0;
    cout << "How many dimes do you have ? ";
    cin >> dimes;
 
-   int quarters {};
+   int quarters = 0;
    cout << "How many quarters do you have ? ";
    cin >> quarters;
 
-   int half_dollars {};
+   int half_dollars = 0;
    cout << "How many half dollars do you have ? ";
    cin >> half_dollars;
 
-   int one_dollars {};
+   int one_dollars = 0;
    cout << "How many one-dollars do you have ? ";
    cin >> one_dollars;
 
@@ -41,10 +41,11 @@ int main()
    cout << "You have " << half_dollars << " half dollar(s).\n";
    cout << "You have " << one_dollars << " one-dollar(s).\n";
 
-   int total_value { pennies + (5 * nickels) + (10 * dimes) + (25 * quarters)
-                     + (50 * half_dollars) + (100 * one_dollars) };
+   const int total_value = pennies + (5 * nickels) + (10 * dimes)
+                           + (25 * quarters) + (50 * half_dollars)
+                           + (100 * one_dollars);
 
-   double dollars { total_value / 100.0 };
+   const double dollars = total_value / 100.0;
 
    cout << "The value of all of your coins is $" << dollars << '\n';
 }

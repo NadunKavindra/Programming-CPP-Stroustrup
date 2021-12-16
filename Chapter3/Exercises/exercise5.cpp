@@ -9,21 +9,23 @@
 
 int main()
 {
-   double val1 {};
-   double val2 {};
-
+   double val1 = 0;
    cout << "Please enter a floating-point value: ";
    cin >> val1;
 
+   double val2 = 0;
    cout << "Please enter another floating-point value: ";
    cin >> val2;
 
-   if (val1 > val2)
+   if (val1 > val2) {
       cout << val2 << " is the smaller value\n";
-   else if (val2 > val1)
+   }
+   else if (val2 > val1) {
       cout << val1 << " is the smaller value\n";
-   else
+   }
+   else {
       cout << val1 << " == " << val2;
+   }
 
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
