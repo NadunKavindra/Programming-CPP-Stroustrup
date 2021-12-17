@@ -3,103 +3,58 @@
 
    A simple game of "Rock, Paper and Scissors"
 
-   Computer moves are not random (randomness is yet to be introduced in the book)
+   Computer moves are not random (randomness is yet to be introduced in the
+   book)
 */
 
 #include "../../std_lib_facilities.h"
 
-constexpr char rock { 'r' };
-constexpr char paper { 'p' };
-constexpr char scissors { 's' };
-const vector<string> computer_moves { "rock", "scissors", "paper", "paper", "rock" };
 
-int player_wins {};
-int computer_wins {};
-int draws {};
+int player_wins = 0;
+int computer_wins = 0;
+int draw = 0;
 
-// returns lowercase version of the provided string
-string tolower_string(string s)
+void evaluate_round(char player_move, const char computer_move)
 {
-   string lower_s;
+   constexpr char rock = 'r';
+   constexpr char paper = 'p';
+   constexpr char scissors = 's';
 
-   for (char c : s) {
-      lower_s += tolower(c);
+   player_move = static_cast<char>(tolower(player_move));
+
+   if (player_move == computer_move) {
+      ++draw;
+      return;
    }
 
-   return lower_s;
-}
-
-// Used to validate input and return appopriate char designation for player_move
-// Exercise description states that the program should use a switch (which does not work with strings)
-char get_player_move(string input)
-{
-   if (input == "rock" || input == "r") {
-      return rock;
-   }
-   else if (input == "paper" || input == "p") {
-      return paper;
-   }
-   else if (input == "scissors" || input == "s") {
-      return scissors;
-   }
-   else {
-      simple_error("invalid input");
-   }
-}
-
-void play(string input, string computer_move)
-{
-   input = tolower_string(input);
-   char player_move { get_player_move(input) };
-
-   cout << "Player: " << input << '\n';
-   cout << "Computer: " << computer_move << '\n';
-
-   // Exercise description states that the program should use a switch
-   // TBH not the most elegant approach
+   // Exercise specifies that a switch should be used
    switch (player_move) {
    case rock:
-      if (computer_move == "paper") {
+      if (computer_move == paper) {
          ++computer_wins;
-         cout << "COMPUTER HAS WON!\n\n";
       }
-      else if (computer_move == "scissors") {
+      else if (computer_move == scissors) {
          ++player_wins;
-         cout << "PLAYER HAS WON\n\n";
-      }
-      else {
-         ++draws;
-         cout << "IT'S A DRAW!\n\n";
-      }
-      break;
-   case scissors:
-      if (computer_move == "rock") {
-      ++computer_wins;
-      cout << "COMPUTER HAS WON!\n\n";
-      }
-      else if (computer_move == "paper") {
-         ++player_wins;
-         cout << "PLAYER HAS WON\n\n";
-      }
-      else {
-         ++draws;
-         cout << "IT'S A DRAW!\n\n";
       }
       break;
    case paper:
-      if (computer_move == "scissors") {
+      if (computer_move == scissors) {
          ++computer_wins;
-         cout << "COMPUTER HAS WON!\n\n";
       }
-      else if (computer_move == "rock") {
+      else if (computer_move == rock) {
          ++player_wins;
-         cout << "PLAYER HAS WON\n\n";
-      }
-      else {
-         ++draws;
-         cout << "IT'S A DRAW!\n\n";
       }
       break;
+   case scissors:
+      if (computer_move == rock) {
+         ++computer_wins;
+      }
+      else if (computer_move == paper) {
+         ++player_wins;
+      }
+      break;
+   default:
+      simple_error("Invalid player move");
    }
 }
 
@@ -107,7 +62,7 @@ void print_scoreboard()
 {
    cout << "Player wins: " << player_wins << '\n';
    cout << "Computer wins: " << computer_wins << '\n';
-   cout << "Draws: " << draws << "\n\n";
+   cout << "Draws: " << draw << "\n\n";
 }
 
 void print_game_results()
@@ -123,19 +78,25 @@ void print_game_results()
    }
 }
 
-int main()
+void play()
 {
-   string input;
+   const vector<string> computer_moves {"rock", "scissors", "paper", "paper", "rock"};
 
    for (string computer_move : computer_moves) {
       cout << "rock, paper or scissors ? ";
-      cin >> input;
-      cout << '\n';
 
-      play(input, computer_move);
+      string player_move;
+      cin >> player_move;
+
+      cout << "\nPlayer: " << player_move << '\n';
+      cout << "Computer: " << computer_move << '\n';
+
+      evaluate_round(player_move[0], computer_move[0]);
+
+      cout << '\n';
       print_scoreboard();
    }
-
    print_game_results();
-   keep_window_open();  // to cope with Win32 console shutdown
 }
+
+int main() { play(); }
