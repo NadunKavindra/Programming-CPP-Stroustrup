@@ -13,9 +13,7 @@ int main()
    string operation;
 
    cout << "Enter an operation followed by two operands (seperated by spaces): ";
-   cin >> operation >> operand1 >> operand2;
-
-   if (!cin) {
+   if (!(cin >> operation >> operand1 >> operand2)) {
       simple_error("invalid input value");
    }
 

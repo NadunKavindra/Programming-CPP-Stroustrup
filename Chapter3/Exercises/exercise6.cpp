@@ -58,6 +58,6 @@ int main()
       }
    }
 
-   cout << "Numbers in numerical sequence: " << smallest << ", " << middle
-        << ", " << largest << '\n';
+   cout << "Numbers in numerical sequence: " << smallest << ", " << middle << ", "
+        << largest << '\n';
 }

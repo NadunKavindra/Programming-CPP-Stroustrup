@@ -29,6 +29,6 @@ int main()
 
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
-   cout << val1 << " / " << val2 << " == " << val1 / static_cast<double>(val2)
+   cout << val1 << " / " << val2 << " == " << val1 / val2
         << '\n';
 }

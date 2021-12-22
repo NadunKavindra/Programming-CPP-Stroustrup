@@ -9,14 +9,12 @@
 int main()
 {
    double miles = 0;
-
    cout << "Please enter number of miles: ";
    cin >> miles;
 
    if (miles < 0) {
       simple_error("distance cannot be a negative value");
    }
-
    double kilometers = miles * 1.609; // Approximate value
 
    cout << miles << " miles == " << kilometers << " kilometers\n";

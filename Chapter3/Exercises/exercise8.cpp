@@ -9,7 +9,6 @@
 int main()
 {
    int val = 0;
-
    cout << "Please enter an integer value: ";
    cin >> val;
 

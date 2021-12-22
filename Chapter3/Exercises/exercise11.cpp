@@ -41,9 +41,8 @@ int main()
    cout << "You have " << half_dollars << " half dollar(s).\n";
    cout << "You have " << one_dollars << " one-dollar(s).\n";
 
-   const int total_value = pennies + (5 * nickels) + (10 * dimes)
-                           + (25 * quarters) + (50 * half_dollars)
-                           + (100 * one_dollars);
+   const int total_value = pennies + (5 * nickels) + (10 * dimes) + (25 * quarters)
+                           + (50 * half_dollars) + (100 * one_dollars);
 
    const double dollars = total_value / 100.0;
 

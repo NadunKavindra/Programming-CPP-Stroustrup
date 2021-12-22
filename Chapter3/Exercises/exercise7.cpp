@@ -57,6 +57,6 @@ int main()
       }
    }
 
-   cout << "Strings in alphabetical sequence: " << smallest << ", " << middle
-        << ", " << largest << '\n';
+   cout << "Strings in alphabetical sequence: " << smallest << ", " << middle << ", "
+        << largest << '\n';
 }

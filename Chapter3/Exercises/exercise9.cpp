@@ -33,9 +33,8 @@ int main()
          cout << "\"" << user_input << "\" == 4\n";
       }
       else {
-         cout << "\"" << user_input << "\"" << " is not a number I know\n";
+         cout << '"' << user_input << '"' << " is not a number I know\n";
       }
-
       cout << "Enter another integer using letters (or enter 'quit' to quit): ";
    }
 }
