@@ -29,6 +29,5 @@ int main()
 
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
-   cout << val1 << " / " << val2 << " == " << val1 / val2
-        << '\n';
+   cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';
 }
