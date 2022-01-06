@@ -9,16 +9,15 @@
 
 #include "../../std_lib_facilities.h"
 
-
+int draw = 0;
 int player_wins = 0;
 int computer_wins = 0;
-int draw = 0;
 
 void evaluate_round(char player_move, const char computer_move)
 {
-   constexpr char rock = 'r';
-   constexpr char paper = 'p';
-   constexpr char scissors = 's';
+   constexpr char ROCK = 'r';
+   constexpr char PAPER = 'p';
+   constexpr char SCISSORS = 's';
 
    player_move = static_cast<char>(tolower(player_move));
 
@@ -29,27 +28,27 @@ void evaluate_round(char player_move, const char computer_move)
 
    // Exercise specifies that a switch should be used
    switch (player_move) {
-   case rock:
-      if (computer_move == paper) {
+   case ROCK:
+      if (computer_move == PAPER) {
          ++computer_wins;
       }
-      else if (computer_move == scissors) {
+      else if (computer_move == SCISSORS) {
          ++player_wins;
       }
       break;
-   case paper:
-      if (computer_move == scissors) {
+   case PAPER:
+      if (computer_move == SCISSORS) {
          ++computer_wins;
       }
-      else if (computer_move == rock) {
+      else if (computer_move == ROCK) {
          ++player_wins;
       }
       break;
-   case scissors:
-      if (computer_move == rock) {
+   case SCISSORS:
+      if (computer_move == ROCK) {
          ++computer_wins;
       }
-      else if (computer_move == paper) {
+      else if (computer_move == PAPER) {
          ++player_wins;
       }
       break;
@@ -80,7 +79,8 @@ void print_game_results()
 
 void play()
 {
-   const vector<string> computer_moves {"rock", "scissors", "paper", "paper", "rock"};
+   const vector<string> computer_moves {"rock", "scissors", "paper", "paper",
+                                        "rock"};
 
    for (string computer_move : computer_moves) {
       cout << "rock, paper or scissors ? ";
@@ -88,7 +88,7 @@ void play()
       string player_move;
       cin >> player_move;
 
-      cout << "\nPlayer: " << player_move << '\n';
+      cout << '\n' << "Player: " << player_move << '\n';
       cout << "Computer: " << computer_move << '\n';
 
       evaluate_round(player_move[0], computer_move[0]);
@@ -99,4 +99,7 @@ void play()
    print_game_results();
 }
 
-int main() { play(); }
+int main()
+{
+   play();
+}

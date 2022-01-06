@@ -18,6 +18,7 @@ int main()
    constexpr double r = 2;
    constexpr double n = 64;
 
+   // Using the sum of geometric series formula
    const double sum = a * (pow(r, n) - 1) / (r - 1);
 
    cout << sum << '\n';

@@ -10,27 +10,28 @@
 
 int main()
 {
-   constexpr int not_prime { 0 };
-   constexpr int is_prime { 1 };
+   constexpr int NOT_PRIME = 0;
+   constexpr int PRIME = 1;
 
-   constexpr int first_prime { 2 };
+   constexpr int first_prime = 2;
 
    vector<int> numbers(100, 1);
 
-   for (int i { first_prime }; i < sqrt(100); ++i) {
-      if (numbers[i] == is_prime) {
-         for (int j = pow(i, 2); j < 100; j += i) {
-            numbers[j] = not_prime;
+   vector<int> primes;
+
+   // Generate primes using The Sieve of Eratosthenes
+   for (int i = first_prime; i < sqrt(100); ++i) {
+      if (numbers[i] == PRIME) {
+         primes.push_back(i);
+         for (int j = static_cast<int>(pow(i, 2)); j < 100; j += i) {
+            numbers[j] = NOT_PRIME;
          }
       }
    }
 
    cout << "The prime numbers between 1 and 100: ";
-
-   for (int i { first_prime }; i < numbers.size(); ++i) {
-      if (numbers[i] == is_prime) {
-         cout << i << ' ';
-      }
+   for (int prime_num : primes) {
+      cout << prime_num << ' ';
    }
    cout << '\n';
 }

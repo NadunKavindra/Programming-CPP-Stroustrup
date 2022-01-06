@@ -43,14 +43,13 @@ int main()
    char operation = 0;
 
    cout << "Enter two digits followed by an operator (all seperated by a space): ";
-   cin >> input1 >> input2 >> operation;
 
-   if (!cin) {
+   if (!(cin >> input1 >> input2 >> operation)) {
       simple_error("invalid input value");
    }
 
    const int digit1 = string_to_int(input1);
-   const int digit2  = string_to_int(input2);
+   const int digit2 = string_to_int(input2);
 
    switch (operation) {
    case '+':

@@ -14,9 +14,8 @@ int main()
 
    cout << "Enter two floating-point values followed by an operator (all "
            "seperated by a space): ";
-   cin >> val1 >> val2 >> operation;
 
-   if (!cin) {
+   if (!(cin >> val1 >> val2 >> operation)) {
       simple_error("invalid input value");
    }
 
@@ -30,8 +29,8 @@ int main()
            << val1 - val2 << '\n';
       break;
    case '*':
-      cout << "The product of " << val1 << " and " << val2 << " is "
-           << val1 * val2 << '\n';
+      cout << "The product of " << val1 << " and " << val2 << " is " << val1 * val2
+           << '\n';
       break;
    case '/':
       cout << val1 << " divided by " << val2 << " is " << val1 / val2 << '\n';

@@ -11,7 +11,7 @@
 vector<string> names;
 vector<int> scores;
 
-// checks if the provided name has been stored before
+/// Checks if the provided name has been stored before in the names vector
 bool previously_entered(const string name)
 {
    for (string s : names) {
@@ -22,12 +22,12 @@ bool previously_entered(const string name)
    return false;
 }
 
-// Returns all the names with the provided score
+/// Returns all the names with the provided score
 vector<string> find_scores(int score)
 {
    vector<string> results;
 
-   for (int i { 0 }; i < scores.size(); ++i) {
+   for (size_t i = 0; i < scores.size(); ++i) {
       if (score == scores[i]) {
          results.push_back(names[i]);
       }
@@ -38,13 +38,12 @@ vector<string> find_scores(int score)
 int main()
 {
    string name;
-   int score {};
+   int score = 0;
 
    while (true) {
-      cout << "Enter a name and a score (seperated by a space) or enter 'NoName  0' to stop: ";
-      cin >> name >> score;
-
-      if (!cin) {
+      cout << "Enter a name and a score (seperated by a space)"
+           << " or enter 'NoName  0' to stop: ";
+      if (!(cin >> name >> score)) {
          simple_error("invalid input value");
       }
 
@@ -64,7 +63,7 @@ int main()
 
    cout << "\nEnter the score which you wish to find (or enter a letter to exit): ";
    while (cin >> score) {
-      const vector<string> results { find_scores(score) };
+      const vector<string> results = find_scores(score);
 
       if (results.empty()) {
          cout << "score not found\n";
@@ -75,6 +74,7 @@ int main()
             cout << s << '\n';
          }
       }
-      cout << "\nEnter another score which you wish to find (or enter a letter to exit): ";
+      cout << "\nEnter another score which you wish to find "
+           << "(or enter a letter to exit): ";
    }
 }

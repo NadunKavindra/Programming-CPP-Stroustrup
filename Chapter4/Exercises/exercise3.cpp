@@ -32,5 +32,6 @@ int main()
    cout << '\n' << "The total distance: " << sum << '\n';
    cout << "The smallest distance between two neighbouring cities: " << min << '\n';
    cout << "The greatest distance between two neighbouring cities: " << max << '\n';
-   cout << "The mean distance between two neighbouring cities: " << sum / distances.size() << '\n';
+   cout << "The mean distance between two neighbouring cities: "
+        << sum / distances.size() << '\n';
 }

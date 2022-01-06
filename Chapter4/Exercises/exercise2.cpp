@@ -21,6 +21,7 @@ int main()
    }
    cout << "Average temperature: " << sum / temperatures.size() << '\n';
 
+   // Temperatures need to be sorted before computing median
    sort(temperatures);
 
    double median = 0;

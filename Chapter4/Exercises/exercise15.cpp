@@ -11,39 +11,45 @@
 
 int main()
 {
-   constexpr int not_prime { 0 };
-   constexpr int is_prime { 1 };
-   constexpr int first_prime { 2 };
-   constexpr int big_number { 100000 };   // a large number to ensure enough primes are generated
-   constexpr int n_limit { 9592 };        // there are only 9592 prime numbers from 2 to 100000
+   constexpr int NOT_PRIME = 0;
+   constexpr int PRIME = 1;
+   constexpr int first_prime = 2;
 
-   vector<int> numbers(big_number, 1);
+   // a large number to ensure enough primes are generated
+   constexpr int BIG_NUMBER = 100000;
 
-   int n {};
+   // there are only 9592 prime numbers from 2 to 100000
+   constexpr int N_LIMIT = 9592;
+
+   int n = 0;
    cout << "Enter the number of prime numbers to be found: ";
-   cin >> n;
 
-   if (!cin || n < 1) {
-      simple_error("input value must be a positive integer");
-   }
-   else if (n > n_limit) {
-      simple_error("This program can only display the first 9592 primes");
+   if (!(cin >> n) || n > N_LIMIT || n <= 0) {
+      simple_error("input value must be a positive integer."
+                   "This program can only display the first 9592 primes");
    }
 
-   // generate primes
-   for (int i { first_prime }; i < sqrt(big_number); ++i) {
-      if (numbers[i] == is_prime) {
-         for (int j = pow(i, 2); j < big_number; j += i)
-            numbers[j] = not_prime;
+   vector<int> numbers(BIG_NUMBER, 1);
+   vector<int> primes;
+
+   // Generate primes using The Sieve of Eratosthenes
+   for (int i = first_prime; i < sqrt(BIG_NUMBER); ++i) {
+      if (numbers[i] == PRIME) {
+         primes.push_back(i);
+
+         if (primes.size() == static_cast<size_t>(n)) {
+            break;
+         }
+
+         for (int j = static_cast<int>(pow(i, 2)); j < BIG_NUMBER; j += i) {
+            numbers[j] = NOT_PRIME;
+         }
       }
    }
+   cout << "The first " << n << " prime numbers are:\n";
 
-   cout << "The first " << n << " prime numbers are:\n" ;
-
-   for (int i { first_prime }; n != 0; ++i) {
-      if (numbers[i] == is_prime) {
-         cout << i << '\n';
-         --n;
-      }
+   for (int prime_num : primes) {
+      cout << prime_num << ' ';
    }
+   cout << '\n';
 }

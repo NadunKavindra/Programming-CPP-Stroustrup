@@ -25,7 +25,6 @@ int main()
       // derived from sum of geometric series formula
       n = static_cast<int>(ceil(log((grains * (r - 1) + a) / a) / log(r)));
 
-      cout << n << " squares are required for " << grains
-           << " grains of rice\n";
+      cout << n << " squares are required for " << grains << " grains of rice\n";
    }
 }

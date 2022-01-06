@@ -10,34 +10,34 @@
 
 int main()
 {
-   constexpr int not_prime { 0 };
-   constexpr int is_prime { 1 };
-   constexpr int first_prime { 2 };
+   constexpr int NOT_PRIME = 0;
+   constexpr int PRIME = 1;
+   constexpr int first_prime = 2;
 
-   int max {};
-
+   int max = 0;
    cout << "Please enter maximum value for the range (must be greater than 2): ";
 
-   if (cin >> max && max > first_prime) {
-      vector<int> numbers(max, 1);
+   if (!(cin >> max && max > first_prime)) {
+      simple_error("value must be an integer greater than "
+                   + to_string(first_prime));
+   }
 
-      for (int i { first_prime }; i < sqrt(max); ++i) {
-         if (numbers[i] == is_prime) {
-            for (int j = pow(i, 2); j < max; j += i) {
-               numbers[j] = not_prime;
-            }
-         }
-      }
+   vector<int> numbers(100, 1);
+   vector<int> primes;
 
-      cout << '\n' << "The prime numbers between 1 and " << max << ":\n";
-
-      for (int i { first_prime }; i < numbers.size(); ++i) {
-         if (numbers[i] == is_prime) {
-            cout << i << '\n';
+   // Generate primes using The Sieve of Eratosthenes
+   for (int i = first_prime; i < sqrt(max); ++i) {
+      if (numbers[i] == PRIME) {
+         primes.push_back(i);
+         for (int j = static_cast<int>(pow(i, 2)); j < max; j += i) {
+            numbers[j] = NOT_PRIME;
          }
       }
    }
-   else {
-      simple_error("value must be an integer greater than " + to_string(first_prime));
+
+   cout << "The prime numbers between 1 and " << max << ": ";
+   for (int prime_num : primes) {
+      cout << prime_num << ' ';
    }
+   cout << '\n';
 }

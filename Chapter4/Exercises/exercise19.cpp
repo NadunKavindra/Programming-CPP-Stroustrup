@@ -14,13 +14,13 @@ int main()
    vector<int> scores;
 
    string name;
-   int score {};
+   int score = 0;
 
    while (true) {
-      cout << "Enter a name and a score (seperated by a space) or enter 'NoName  0' to stop: ";
-      cin >> name >> score;
+      cout << "Enter a name and a score (seperated by a space) "
+           << "or enter 'NoName  0' to stop: ";
 
-      if (!cin) {
+      if (!(cin >> name >> score)) {
          simple_error("invalid input value");
       }
 
@@ -34,12 +34,11 @@ int main()
             simple_error("The name '" + name + "' has been entered before");
          }
       }
-
       names.push_back(name);
       scores.push_back(score);
    }
 
-   for (int i { 0 }; i < names.size(); ++i) {
+   for (size_t i = 0; i < names.size(); ++i) {
       cout << '(' << names[i] << ", " << scores[i] << ")\n";
    }
 }

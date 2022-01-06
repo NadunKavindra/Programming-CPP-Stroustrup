@@ -13,7 +13,7 @@ int main()
 
    cout << "Please enter the digit to be converted (enter '|' to exit): ";
 
-   for (string input; cin >> input && input != "|";) {
+   for (string input; cin >> input && input != "|"; ) {
       bool found = false;
 
       if (input.size() == 1) {
@@ -36,8 +36,6 @@ int main()
       if (!found) {
          cout << "Unknown digit! Try again.\n";
       }
-
-      cout << '\n'
-           << "Please enter the digit to be converted (enter '|' to exit): ";
+      cout << '\n' << "Please enter the digit to be converted (enter '|' to exit): ";
    }
 }
