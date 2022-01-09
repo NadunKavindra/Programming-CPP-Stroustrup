@@ -8,26 +8,32 @@
 
 double c_to_k(const double c)
 {
-   constexpr double absolute_zero { -273.15 };
+   constexpr double absolute_zero = -273.15;
 
    if (c < absolute_zero) {
-      error("invalid argument, temperature cannot be below " + to_string(absolute_zero) + " \370C");
+      error("invalid argument, temperature cannot be below "
+            + to_string(absolute_zero) + " \370C");
    }
 
    return c + 273.15;
 }
 
-int main()
-try {
+void run_exercise()
+{
    cout << "Enter temperature in \370C: ";
-   double c {};
-   cin >> c;
+   double c = 0;
 
-   if (!cin) {
+   if (!(cin >> c)) {
       error("input value must be a number");
    }
 
    cout << c << " \370C == " << c_to_k(c) << " \370K" << '\n';
+}
+
+int main()
+try {
+   run_exercise();
+   return 0;
 }
 catch (exception& e) {
    cerr << "error: " << e.what() << '\n';

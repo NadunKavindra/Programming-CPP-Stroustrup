@@ -15,11 +15,11 @@
 
 int main()
 {
-   constexpr unsigned int answer_length { 4 };
+   constexpr int answer_length = 4;
    vector<char> answer;
 
-   for (int i { 0 }; i < answer_length; ++i) {
-      char c = randint(9) + 48 ; // ASCI digits start at code 48
+   for (int i = 0; i < answer_length; ++i) {
+      char c = static_cast<char>(randint(9) + 48); // ASCI digits start at code 48
       answer.push_back(c);
    }
 
@@ -31,15 +31,15 @@ int main()
 
    cout << "\nPlease make a guess (must be a " << answer_length << " digit number): ";
    while (cin >> user_guess) {
-      int bulls { 0 };  // the number of guesses that got post position and value right
-      int cows { 0 };   // the number of guesses that only got the value right
+      int bulls = 0;  // the number of guesses that got post position and value right
+      int cows = 0;   // the number of guesses that only got the value right
 
       if (user_guess.length() > answer_length) {
          cerr << "Input must have a length of " << answer_length << ". Please try again: ";
          continue;
       }
 
-      for (int i { 0 }; i < answer_length; ++i) {
+      for (int i = 0; i < answer_length; ++i) {
          // guessed both correct digit and position
          if (user_guess[i] == answer[i]) {
             ++bulls;

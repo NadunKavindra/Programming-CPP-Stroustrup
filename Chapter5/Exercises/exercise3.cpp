@@ -13,18 +13,18 @@ double c_to_k(const double c)
 
 int main()
 {
-   constexpr double absolute_zero { -273.15 };
+   constexpr double absolute_zero = -273.15;
 
    cout << "Enter temperature in \370C: ";
-   double c {};
-   cin >> c;
+   double c = 0;
 
-   if (!cin) {
+   if (!(cin >> c)) {
       cerr << "Error: input value must be a number";
       return 1;
    }
    else if (c < absolute_zero) {
-      cerr << "Error: temperature value must not be below " << absolute_zero << " \370C\n";
+      cerr << "Error: temperature value must not be below " << absolute_zero
+           << " \370C\n";
       return 1;
    }
 

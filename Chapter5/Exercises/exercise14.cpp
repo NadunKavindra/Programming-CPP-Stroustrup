@@ -10,8 +10,8 @@
 // Returns all lowercase version of s
 string tolower_string(string s)
 {
-   for (int i { 0 }; i < s.size(); ++i) {
-      s[i] = tolower(s[i]);
+   for (size_t i = 0; i < s.size(); ++i) {
+      s[i] = static_cast<char>(tolower(s[i]));
    }
    return s;
 }
@@ -19,7 +19,7 @@ string tolower_string(string s)
 // Returns the sum of the values of vector v
 int sum_of_vector(const vector<int> v)
 {
-   int sum { 0 };
+   int sum = 0;
 
    for (int value : v) {
       sum += value;
@@ -50,20 +50,20 @@ int main()
    vector<int> saturday;
    vector<int> sunday;
 
-   int reject_counter { 0 };
+   int reject_counter = 0;
 
-   int value {};
+   int value = 0;
    string day;
 
-   cout << "Enter day-of-the-week value pairs, ex. Tuesday 23 (Enter 'done 0' to stop)):\n";
-   while (true) {
-      cin >> day >> value;
+   cout << "Enter day-of-the-week value pairs, ex. Tuesday 23"
+        << "(Enter 'done 0' to stop)):\n";
 
-      if (!cin) {
+   while (true) {
+      if (!(cin >> day >> value)) {
          ++reject_counter;
          cout << "Rejected: Invalid value\n\n";
          cin.clear();
-	      cin.ignore(120, '\n');
+         cin.ignore(120, '\n');
          continue;
       }
 
@@ -73,8 +73,6 @@ int main()
          break;
       }
 
-      // Would be simpler with a switch statement
-      // but C++ does not support switch on strings
       if (day == "monday" || day == "mon") {
          monday.push_back(value);
       }
@@ -84,7 +82,7 @@ int main()
       else if (day == "wednesday" || day == "wed") {
          wednesday.push_back(value);
       }
-      else if (day == "thursday" || day == "thu" || day == "thur" || day == "thurs") {
+      else if (day == "thursday" || day == "thu" || day == "thurs") {
          thursday.push_back(value);
       }
       else if (day == "friday" || day == "fri") {
