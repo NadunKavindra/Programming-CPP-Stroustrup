@@ -25,8 +25,8 @@ double sum_vector(const vector<double> v, const size_t n)
    return sum;
 }
 
-// returns a vector containing the n-1 differences between adjacent values of the
-// provided vector
+/// returns a vector containing the n-1 differences between adjacent values of the
+/// provided vector
 vector<double> diff_vector(const vector<double> v, const size_t n)
 {
    if (n > v.size()) {

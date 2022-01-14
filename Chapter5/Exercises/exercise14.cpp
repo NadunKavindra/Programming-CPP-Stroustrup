@@ -7,7 +7,7 @@
 
 #include "../../std_lib_facilities.h"
 
-// Returns all lowercase version of s
+/// Returns all lowercase version of s
 string tolower_string(string s)
 {
    for (size_t i = 0; i < s.size(); ++i) {
@@ -16,7 +16,7 @@ string tolower_string(string s)
    return s;
 }
 
-// Returns the sum of the values of vector v
+/// Returns the sum of the values of vector v
 int sum_of_vector(const vector<int> v)
 {
    int sum = 0;
@@ -27,7 +27,7 @@ int sum_of_vector(const vector<int> v)
    return sum;
 }
 
-// Prints out the values of vector v
+/// Prints out the values of vector v
 void print_vector(const vector<int> v)
 {
    if (v.empty()) {

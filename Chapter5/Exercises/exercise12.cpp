@@ -14,8 +14,8 @@
 
 int main()
 {
-   // would be better to fill the vector randomly but randomness not yet introduced
-   // in the book
+   // would be better to fill the vector randomly
+   // but randomness not yet introduced in the book
    const vector<char> answer {'1', '2', '3', '4'};
 
    string user_guess;
