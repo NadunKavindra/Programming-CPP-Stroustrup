@@ -9,9 +9,9 @@
 
 #include "../../std_lib_facilities.h"
 
-// Converts a vector of chars into it's integer representation
-// Only works with positive collection of digits
-// e.g. {'1', '2', '3', '4'} into 1234
+/// Converts a vector of chars into it's integer representation
+/// Only works with positive collection of digits
+/// e.g. {'1', '2', '3', '4'} into 1234
 int chars_to_int(const vector<char>& digits)
 {
    if (digits[0] == '-') {
@@ -19,22 +19,22 @@ int chars_to_int(const vector<char>& digits)
    }
 
    if (digits.size() == 1) {
-      return digits[0] - '0';    // 'x' - '0' == x by ASCII Code conventions
+      return digits[0] - '0'; // 'x' - '0' == x by ASCII Code conventions
    }
 
-   int result { 0 };
-   int multiplier = pow(10, digits.size() - 1);
+   int result = 0;
+   int multiplier = static_cast<int>(pow(10, digits.size() - 1));
 
    for (char digit : digits) {
-      result += (digit - '0') * multiplier;   // 'x' - '0' == x by ASCII Code conventions
+      // 'x' - '0' == x by ASCII Code conventions
+      result += (digit - '0') * multiplier;
       multiplier /= 10;
    }
-
    return result;
 }
 
-// Prints out the number along with it's constituents
-// Parameter must be a non-negative number.
+/// Prints out the number along with it's constituents
+/// Parameter must be a non-negative number.
 void print_number(int number)
 {
    if (number < 0) {
@@ -49,10 +49,10 @@ void print_number(int number)
    // start printing the number
    cout << number << " is ";
 
-   int scale { 1000 };   // 1000 as a number can have a maximum of 4 digits
+   int scale = 1000; // A number can have a maximum of 4 digits
 
    while (scale >= 1) {
-      int digit { number / scale };
+      int digit = number / scale;
 
       if (digit != 0) {
          switch (scale) {
@@ -71,7 +71,7 @@ void print_number(int number)
          }
 
          number %= scale;
-         if (number != 0) {   // there are still numbers remaining
+         if (number != 0) { // there are still numbers remaining
             cout << " and ";
          }
       }
@@ -88,10 +88,10 @@ try {
       cout << "Please enter a number with at most 4 digits: ";
 
       while (true) {
-         char tmp = getchar();
+         char tmp = static_cast<char>(getchar());
          if (!isdigit(tmp) && tmp != '\n') {
             cin.clear();
-            cin.ignore(120, '\n');  // ignore remaining chars in the buffer
+            cin.ignore(120, '\n'); // ignore remaining chars in the buffer
             digits.clear();
             break;
          }
@@ -102,14 +102,12 @@ try {
             }
             break;
          }
-
          digits.push_back(tmp);
       }
    }
+   print_number(chars_to_int(digits));
 
-   const int number { chars_to_int(digits) };
-
-   print_number(number);
+   return 0;
 }
 catch (exception& e) {
    cerr << "Error: " << e.what() << '\n';

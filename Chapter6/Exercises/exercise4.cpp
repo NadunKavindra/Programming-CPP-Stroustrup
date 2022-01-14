@@ -13,21 +13,21 @@
 
 #include "../../std_lib_facilities.h"
 
-struct Name_value {
+struct NameValuePair {
    string name;
    int score;
 };
 
-int main()
-try {
-   vector<Name_value> pairs;
-   Name_value input;
+void run_exercise()
+{
+   vector<NameValuePair> pairs;
+   NameValuePair input;
 
    while (true) {
-      cout << "Enter a name and a score (seperated by a space) or enter 'NoName  0' to stop: ";
-      cin >> input.name >> input.score;
+      cout << "Enter a name and a score (seperated by a space)"
+           << "or enter 'NoName  0' to stop: ";
 
-      if (!cin) {
+      if (!(cin >> input.name >> input.score)) {
          error("invalid input value");
       }
 
@@ -36,19 +36,23 @@ try {
       }
 
       // check previous entries
-      for (Name_value p : pairs) {
+      for (NameValuePair p : pairs) {
          if (input.name == p.name) {
             // an error must be thrown per exercise description
             error(input.name, " has been entered before");
          }
       }
-
       pairs.push_back(input);
    }
-
-   for (Name_value p: pairs) {
+   for (NameValuePair p : pairs) {
       cout << '(' << p.name << ", " << p.score << ")\n";
    }
+}
+
+int main()
+try {
+   run_exercise();
+   return 0;
 }
 catch (exception& e) {
    cerr << "Error: " << e.what() << '\n';

@@ -23,14 +23,13 @@
       "swim"
 */
 
-
 #include "../../std_lib_facilities.h"
 
-const vector<string> nouns { "birds", "fish", "C++" };
-const vector<string> verbs { "rules", "fly", "swim" };
-const vector<string> conjunctions { "and", "or", "but" };
+const vector<string> nouns {"birds", "fish", "C++"};
+const vector<string> verbs {"rules", "fly", "swim"};
+const vector<string> conjunctions {"and", "or", "but"};
 
-bool is_article(string word)
+bool is_article(const string word)
 {
    if (word == "the") {
       return true;
@@ -44,34 +43,31 @@ bool is_noun(string word)
       cin >> word;
    }
 
-   for (string noun: nouns) {
+   for (string noun : nouns) {
       if (word == noun) {
          return true;
       }
    }
-
    return false;
 }
 
-bool is_verb(string word)
+bool is_verb(const string word)
 {
-   for (string verb: verbs) {
+   for (string verb : verbs) {
       if (word == verb) {
          return true;
       }
    }
-
    return false;
 }
 
-bool is_conjunction (string word)
+bool is_conjunction(const string word)
 {
    for (string conjunction : conjunctions) {
       if (word == conjunction) {
          return true;
       }
    }
-
    return false;
 }
 
@@ -96,6 +92,8 @@ bool sentence()
    return false;
 }
 
+/// Prompts the user to enter if they wish to continue or not
+/// If answer is yes returns true, otherwise return false
 bool ask_user()
 {
    // ignore anything remaining in cin
@@ -103,21 +101,18 @@ bool ask_user()
    cin.ignore(120, '\n');
 
    cout << "Try again ? [Y/n]: ";
-   char input {};
+   char input = 0;
    cin >> input;
 
    if (input == 'y' || input == 'Y') {
       return true;
    }
-
    return false;
 }
 
-
 int main()
 try {
-   bool keep_going { true };
-
+   bool keep_going = true;
    while (keep_going) {
       cout << "Please enter a sentence (ending with a ' .'): ";
 
@@ -129,6 +124,7 @@ try {
       }
       keep_going = ask_user();
    }
+   return 0;
 }
 catch (exception& e) {
    cerr << "Error: " << e.what() << '\n';
