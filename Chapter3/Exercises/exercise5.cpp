@@ -24,10 +24,15 @@ int main()
       cout << val1 << " is the smaller value\n";
    }
    else {
-      cout << val1 << " == " << val2;
+      cout << val1 << " == " << val2 << '\n';
    }
 
    cout << val1 << " - " << val2 << " == " << val1 - val2 << '\n';
    cout << val1 << " * " << val2 << " == " << val1 * val2 << '\n';
-   cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';
+   if (val2 == 0) {
+      cout << val1 << " / " << val2 << " == undefined\n";
+   }
+   else {
+      cout << val1 << " / " << val2 << " == " << val1 / val2 << '\n';
+   }
 }
