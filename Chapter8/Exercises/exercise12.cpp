@@ -1,15 +1,20 @@
 /*
-   Exercise 12 on Page 301: 
+   Exercise 12 on Page 301:
    Modified the function print_until_s from Chapter 8.5.2
 */
 
-#include "../../std_lib_facilities.h"
+#include <exception>
+#include <iostream>
+#include <string>
+#include <vector>
 
-// Prints contents of a vector to cout until a certain string is reached
-// Originally written by Bjarne Stroustrup
-void print_until_s(const vector<string>& v, string quit)
+using namespace std;
+
+/// Prints contents of a vector to cout until a certain string is reached
+/// Originally written by Bjarne Stroustrup
+void print_until_s(const vector<string>& v,const string& quit)
 {
-   for (string s : v) {
+   for (const string s : v) {
       if (s == quit) {
          return;
       }
@@ -17,14 +22,14 @@ void print_until_s(const vector<string>& v, string quit)
    }
 }
 
-// Prints contents of a vector to cout until the second occurence of a certain string
-void print_until_ss(const vector<string>& v, string quit)
+/// Prints contents of a vector to cout until
+/// the second occurence of a certain string
+void print_until_ss(const vector<string>& v, const string& quit)
 {
-   int counter {0};
-   for (string s : v) {
+   int counter = 0;
+   for (const string s : v) {
       if (s == quit) {
-         ++counter;
-         if (counter == 2) {
+         if (++counter == 2) {
             return;
          }
       }
@@ -34,13 +39,16 @@ void print_until_ss(const vector<string>& v, string quit)
 
 int main()
 try {
-   vector<string> test_values = {"greetings", "traveller", "how", "goes", "it",
-                                 "how", "are", "you"};
+   const vector<string> test_values {"greetings", "traveller", "how", "goes",
+                                     "it",        "how",       "are", "you"};
+
    print_until_s(test_values, "how");
    cout << '\n';
    print_until_ss(test_values, "how");
+
+   return 0;
 }
-catch (exception& e) {
+catch (const exception& e) {
    cerr << "Error: " << e.what() << '\n';
    return 1;
 }

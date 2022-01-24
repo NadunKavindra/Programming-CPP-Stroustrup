@@ -2,17 +2,21 @@
    Exercise 9 on Page 301
 */
 
-#include "../../std_lib_facilities.h"
+#include <stdexcept>
+#include <iostream>
+#include <vector>
 
-// Computes an "index" which is the sum of all a[i] * b[i]
+using namespace std;
+
+/// @returns an "index" which is the sum of all a[i] * b[i]
 double calculate_index(const vector<double>& a, const vector<double>& b)
 {
    if (a.size() != b.size()) {
-      error("both vectors must have the same size");
+      invalid_argument("both vectors must have the same size");
    }
 
-   double index {};
-   for (int i {0}; i < a.size(); ++i) {
+   double index = 0;
+   for (size_t i = 0; i < a.size(); ++i) {
       index += a[i] * b[i];
    }
    return index;
@@ -24,8 +28,9 @@ try {
    vector<double> price {2, 4, 6, 8};
 
    cout << "index == " << calculate_index(weight, price) << '\n';
+   return 0;
 }
-catch (exception& e) {
+catch (const exception& e) {
    cerr << "Error: " << e.what() << '\n';
    return 1;
 }

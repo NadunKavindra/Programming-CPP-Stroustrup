@@ -2,15 +2,20 @@
    Exercise 3 on Page 300
 */
 
-#include "../../std_lib_facilities.h"
+#include <stdexcept>
+#include <iostream>
+#include <string>
+#include <vector>
 
-// Prints a vector of ints to cout
-// label used as a "heading" in the output
-void print(const vector<int>& v, string label)
+using namespace std;
+
+/// Prints a vector of ints to cout
+/// @param label used as a "heading" in the output
+void print_vector(const vector<int>& v, const string& label)
 {
-   cout << label << ": " << "{ ";
+   cout << label << " == " << "{ ";
 
-   for (int i {0}; i < v.size(); ++i) {
+   for (size_t i = 0; i < v.size(); ++i) {
       cout << v[i];
 
       if (i != v.size() - 1) {
@@ -20,25 +25,25 @@ void print(const vector<int>& v, string label)
    cout << " }" << '\n';
 }
 
-// Fills an empty vector with a Fibonacci sequence
-// x is the first element of the Fibonacci sequence
-// y is the second element of the Fibonacci sequence
-// n is the number of elements to filled into the vector
-// v is the empty vector to be filled
+/// Fills an empty vector with a Fibonacci sequence
+/// @param x is the first element of the Fibonacci sequence
+/// @param y is the second element of the Fibonacci sequence
+/// @param n is the number of elements to filled into the vector
+/// @param v is the empty vector to be filled
 void fibonacci(int x, int y, int n, vector<int>& v)
 {
    if (n <= 0) {
-      error("n must be a positive number");
+      invalid_argument("n must be a positive number");
    }
 
    // exercise description states that v should be empty
    if (!v.empty()) {
-      error("v must be an empty vector");
+      invalid_argument("v must be an empty vector");
    }
 
    do {
       v.push_back(x);
-      int c {y};
+      int c = y;
       y = x + y;
       x = c;
       --n;
@@ -50,10 +55,10 @@ try {
    vector<int> test;
    fibonacci(1, 2, 7, test);
 
-   print(test, "RESULTS");
+   print_vector(test, "RESULTS");
    return 0;
 }
-catch (exception& e) {
+catch (const exception& e) {
    cerr << "Error: " << e.what() << '\n';
    return 1;
 }
