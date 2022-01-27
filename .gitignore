@@ -38,6 +38,7 @@
 
 # Other stuff
 .clang-format
+.idea
 
 # Exercises to be ignored
 drill.cpp
