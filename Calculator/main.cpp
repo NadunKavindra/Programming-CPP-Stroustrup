@@ -20,7 +20,8 @@
 
       Improved error handling
       Arranged into headers and source files
- */
+*/
+
 #include "Calculator.hpp"
 #include <exception>
 #include <iostream>
