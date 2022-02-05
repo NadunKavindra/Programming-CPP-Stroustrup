@@ -1,7 +1,7 @@
 /*
    Exercise 2 on Page 339:
-   Program that implements a Name_pairs class holding (name, age) pairs
-   where name is a string and age is a double. (as specified by exercise description)
+   Program that implements a NamePairs class holding (name, age) pairs
+   where name is a string and age is a int.
 */
 
 #include <algorithm>
@@ -27,7 +27,7 @@ int find_index(const vector<string>& v, const string& s)
    return i - v.begin();
 }
 
-class Name_Pairs {
+class NamePairs {
 public:
    void read_names(int n);
    void read_ages();
@@ -41,7 +41,7 @@ private:
 
 /// Prompts the user and reads n unique strings from cin
 /// and adds them to the names member
-void Name_Pairs::read_names(const int n)
+void NamePairs::read_names(const int n)
 {
    if (n <= 0) {
       throw invalid_argument("invalid value. n must be a positive number");
@@ -62,7 +62,7 @@ void Name_Pairs::read_names(const int n)
 
 /// Prompts user to enter an age for each name in the member names
 /// Reads the ages from cin
-void Name_Pairs::read_ages()
+void NamePairs::read_ages()
 {
    if (names.empty()) {
       throw invalid_argument("cannot add ages as names vector is empty");
@@ -80,7 +80,7 @@ void Name_Pairs::read_ages()
 }
 
 /// Prints out the (names[i], ages[i]) pairs to cout (one per line)
-void Name_Pairs::print() const
+void NamePairs::print() const
 {
    for (size_t i = 0; i < names.size(); ++i) {
       cout << '(' << names[i] << ", " << ages[i] << ")\n";
@@ -89,7 +89,7 @@ void Name_Pairs::print() const
 
 /// Sorts the names member in alphabetical order and reorganizes the age member to
 /// match
-void Name_Pairs::sort()
+void NamePairs::sort()
 {
    if (is_sorted(names.begin(), names.end())) {
       return;
@@ -109,7 +109,7 @@ void Name_Pairs::sort()
 
 int main()
 try {
-   Name_Pairs test;
+   NamePairs test;
    test.read_names(5);
    cout << '\n';
    test.read_ages();
@@ -121,10 +121,14 @@ try {
    test.sort();
    cout << "\nAfter Sorting:\n";
    test.print();
+
+   return 0;
 }
 catch (const exception& e) {
    cerr << "Error: " << e.what() << '\n';
+   return 1;
 }
 catch (...) {
    cerr << "Error: unknown exception\n";
+   return 2;
 }
