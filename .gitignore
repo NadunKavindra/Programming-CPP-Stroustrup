@@ -41,4 +41,4 @@
 .idea
 
 # Exercises to be ignored
-drill.cpp
+/Drills
