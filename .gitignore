@@ -39,6 +39,7 @@
 # Other stuff
 .clang-format
 .idea
+cmake-build-*
 
 # Exercises to be ignored
 /Drills
