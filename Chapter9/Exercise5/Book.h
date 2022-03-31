@@ -6,7 +6,7 @@
 class Book {
 public:
    Book(const std::string& ISBN, const std::string& author, const std::string& title,
-        const int copyright_year);
+        int copyright_year);
 
    void check_in();
    void check_out();

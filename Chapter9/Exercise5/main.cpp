@@ -1,3 +1,8 @@
+/*
+   Implements a Book Class
+   Extended in Exercise 6 & 7
+ */
+
 #include "Book.h"
 #include <iostream>
 
