@@ -3,19 +3,19 @@
 //
 
 #include "Book.h"
-#include <string>
 #include <regex>
 #include <stdexcept>
+#include <string>
 
 using std::string;
 
-
-Book::Book(string ISBN, string author, string title,  int copyright_year)
-   :ISBN{ISBN}, author{author}, title{title}, copyright_year{copyright_year}
+Book::Book(const string& ISBN, const string& author, const string& title,
+           const int copyright_year)
+    : ISBN{ISBN}, author{author}, title{title}, copyright_year{copyright_year}
 {
-   const static std::regex ISBN_PATTERN {"^[0-9]+-[0-9]+-[0-9]+-[a-zA-Z0-9]$"};
+   const static std::regex ISBN_PATTERN{"^[0-9]+-[0-9]+-[0-9]+-[a-zA-Z0-9]$"};
 
-   if (! std::regex_match(ISBN, ISBN_PATTERN)) {
+   if (!std::regex_match(ISBN, ISBN_PATTERN)) {
       throw std::invalid_argument("Invalid ISBN format");
    }
 
