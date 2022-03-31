@@ -9,7 +9,7 @@ enum class Genre { FICTION, NONFICTION, PERIODICAL, BIOGRAPHY, CHILDREN };
 class Book {
 public:
    Book(const std::string& ISBN, const std::string& author, const std::string& title,
-        const int copyright_year, const Genre genre);
+        int copyright_year, Genre genre);
 
    void check_in();
    void check_out();
