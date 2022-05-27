@@ -1,0 +1,3 @@
+bears: 17 elephant 9 end
+giraffe 4
+unicorn -10
