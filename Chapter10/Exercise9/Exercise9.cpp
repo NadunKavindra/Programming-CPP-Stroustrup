@@ -73,7 +73,7 @@ int main(int argc, char const* argv[])
 try {
    if (argc != 4) {
       cerr << "Incorrect usage.\n"
-           << "Correct Usage: Exercise6 <input_filename> <input_filename> "
+           << "Correct Usage: Exercise9 <input_filename> <input_filename> "
               "<output_filename>";
       return 1;
    }
