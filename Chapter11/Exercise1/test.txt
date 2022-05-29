@@ -1,0 +1,3 @@
+Hello Testing Lowercase conversion
+TESTING 123 TeSTiNG
+H
