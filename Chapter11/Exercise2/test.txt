@@ -1,0 +1,3 @@
+We will now search for the word "hello"
+let's see which lines contain it
+hello world
