@@ -48,7 +48,7 @@ int main(int argc, char const* argv[])
 try {
    if (argc != 2) {
       cerr << "Incorrect usage.\n"
-           << "Correct Usage: text_to_binary <input_filename>";
+           << "Correct Usage: binary_to_text <input_filename>";
       return 1;
    }
 
