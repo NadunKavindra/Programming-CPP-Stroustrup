@@ -1,8 +1,11 @@
+/*
+   Chapter 11 Exercise 10 Page 409
+*/
+
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
-
 
 /// @returns a vector of whitespace seperated substrings of the argument s
 std::vector<std::string> split(const std::string& s)
