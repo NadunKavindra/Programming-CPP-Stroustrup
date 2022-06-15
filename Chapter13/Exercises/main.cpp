@@ -3,10 +3,15 @@
 
    Due to time concerns, I only implemented the following exercises:
 
-   Exercise 1: Define a class Arc that draws a part of an ellipse.
-   Exercise 2: Define a class Box that is a rectangle with rounded corners.
-   Exercise 8: Define a class RegularHexagon. Use the center and distance from
-               center to corner points as constructor arguments.
+      Exercise 1:  Define a class Arc that draws a part of an ellipse.
+
+      Exercise 2:  Define a class Box that is a rectangle with rounded corners.
+
+      Exercise 8:  Define a class RegularHexagon. Use the center and distance from
+                   center to corner points as constructor arguments.
+
+      Exercise 10: Define a class RegularPolygon. Use the center, number of sides (>2)
+                   and the istance from center to corner points as constructor arguments.
 
    All other code written by Bjarne Stroustrup and requires FLTK library to run.
 */
@@ -15,6 +20,7 @@
 #include "Box.h"
 #include "Graph.h"
 #include "RegularHexagon.h"
+#include "RegularPolygon.h"
 #include "Simple_window.h"
 
 #include <exception>
@@ -35,10 +41,16 @@ try {
    arc.set_style(Line_style {Line_style::solid, 3});
 
    RegularHexagon hex {Point {640, 360}, 200};
-   
+   hex.set_style(Line_style {Line_style::solid, 3});
+
+   RegularPolygon octagon {Point {640, 360}, 200, 8};
+   octagon.set_color(Color::dark_red);
+   octagon.set_style(Line_style {Line_style::solid, 3});
+
    window.attach(arc);
    window.attach(box);
    window.attach(hex);
+   window.attach(octagon);
    window.wait_for_button();
    return 0;
 }

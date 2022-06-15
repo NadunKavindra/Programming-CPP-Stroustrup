@@ -138,6 +138,7 @@
     <ClInclude Include="Gui.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="RegularHexagon.h" />
+    <ClInclude Include="RegularPolygon.h" />
     <ClInclude Include="Simple_window.h" />
     <ClInclude Include="std_lib_facilities.h" />
     <ClInclude Include="Window.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RegularHexagon.cpp" />
+    <ClCompile Include="RegularPolygon.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

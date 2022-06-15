@@ -45,6 +45,9 @@
     <ClInclude Include="RegularHexagon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RegularPolygon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Graph.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RegularHexagon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularPolygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

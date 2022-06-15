@@ -14,6 +14,7 @@ RegularHexagon::RegularHexagon(const Point center, const int circumradius)
       throw std::invalid_argument(
           "RegularHexagon --> circumradius must be positive");
    }
+
    set_color(0);
    add_points();
 }
