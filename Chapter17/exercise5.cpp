@@ -6,9 +6,9 @@
 #include <exception>
 #include <iostream>
 
-bool equals(const char* s, const char* s2)
+bool starts_with(const char* s, const char* s2)
 {
-   while (*s && *s2 && *s == *s2) {
+   while (*s2 && *s == *s2) {
       ++s;
       ++s2;
    }
@@ -18,9 +18,7 @@ bool equals(const char* s, const char* s2)
 const char* findx(const char* s, const char* x)
 {
    while (*s) {
-      if (equals(s, x)) {
-         return s;
-      }
+      if (starts_with(s, x)) { return s; }
       ++s;
    }
    return nullptr;
