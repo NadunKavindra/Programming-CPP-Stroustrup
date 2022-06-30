@@ -8,14 +8,6 @@
 
 bool equals(const char* s, const char* s2)
 {
-   if (s == s2) {
-      return true;
-   }
-
-   if (s == nullptr || s2 == nullptr) {
-      return false;
-   }
-
    while (*s && *s2 && *s == *s2) {
       ++s;
       ++s2;
@@ -25,10 +17,6 @@ bool equals(const char* s, const char* s2)
 
 const char* findx(const char* s, const char* x)
 {
-   if (s == nullptr || x == nullptr) {
-      return nullptr;
-   }
-
    while (*s) {
       if (equals(s, x)) {
          return s;

@@ -10,10 +10,6 @@
 
 int my_strlen(const char* const s)
 {
-   if (s == nullptr) {
-      return 0;
-   }
-
    int i = 0;
    while (s[i] != 0) {
       ++i;
@@ -23,10 +19,6 @@ int my_strlen(const char* const s)
 
 char* my_strdup(const char* const s)
 {
-   if (s == nullptr) {
-      return nullptr;
-   }
-
    const int size = my_strlen(s) + 1; // +1 for null terminator
    char* duplicate = new char[size];
 
