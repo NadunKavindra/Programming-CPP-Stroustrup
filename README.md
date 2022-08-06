@@ -10,6 +10,9 @@ Thus, I dedicated a portion of my summer breaks to go through this **book by [Bj
 I have  attempted to solve as many of the end-of-chapter exercises as possible.\
 Where time was limited, I chose to solve the ones that looked the most interesting to me.
 
+I have not completed the final chapters of the book.\
+My intention is to save these as "refreshers", working through them if I need to.
+
 ### A note about coding style
 I treated this book, and by extension this repository, as a learning experience rather than a project.\
 Therefore, the coding style may not be consistent across each chapter.
